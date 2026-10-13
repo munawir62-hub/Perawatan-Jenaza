@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPI Perawatan Jenazah - PAI Kelas 8 SMP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins & Scheherazade New for Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .font-arabic { font-family: 'Amiri', serif; }
+        .tab-active { @apply border-teal-600 text-teal-700 bg-teal-50 font-semibold; }
+        .step-active { @apply bg-teal-600 text-white shadow-lg; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Header / Navbar -->
+    <header class="bg-teal-800 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="p-2.5 bg-amber-500 rounded-xl shadow">
+                    <i class="fa-solid font-bold text-2xl fa-hands-holding"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold tracking-wide">MPI PAI & Budi Pekerti</h1>
+                    <p class="text-xs text-teal-200">Kelas 8 SMP Semester 1 • Perawatan Jenazah (Fardhu Kifayah)</p>
+                </div>
+            </div>
+            
+            <!-- Audio Backsound / Bantuan Badge -->
+            <div class="flex items-center space-x-2 bg-teal-900/60 px-3 py-1.5 rounded-lg border border-teal-700 text-xs text-teal-100">
+                <i class="fa-solid fa-graduation-cap text-amber-400 text-sm"></i>
+                <span>Media Pembelajaran Interaktif</span>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="bg-teal-900 border-t border-teal-700/50">
+            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 flex overflow-x-auto no-scrollbar py-1 text-sm font-medium">
+                <button onclick="switchTab('pendahuluan')" id="nav-pendahuluan" class="nav-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg whitespace-nowrap text-teal-100 hover:bg-teal-800 transition">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Pendahuluan</span>
+                </button>
+                <button onclick="switchTab('peta-konsep')" id="nav-peta-konsep" class="nav-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg whitespace-nowrap text-teal-100 hover:bg-teal-800 transition">
+                    <i class="fa-solid fa-sitemap"></i>
+                    <span>Peta Konsep</span>
+                </button>
+                <button onclick="switchTab('materi')" id="nav-materi" class="nav-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg whitespace-nowrap text-teal-100 hover:bg-teal-800 transition">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Proses & Materi</span>
+                </button>
+                <button onclick="switchTab('video')" id="nav-video" class="nav-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg whitespace-nowrap text-teal-100 hover:bg-teal-800 transition">
+                    <i class="fa-solid fa-circle-play"></i>
+                    <span>Video Peragaan</span>
+                </button>
+                <button onclick="switchTab('kuis')" id="nav-kuis" class="nav-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg whitespace-nowrap text-teal-100 hover:bg-teal-800 transition">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span>Kuis & Latihan</span>
+                </button>
+                <button onclick="switchTab('refleksi')" id="nav-refleksi" class="nav-btn flex items-center space-x-2 px-4 py-2.5 rounded-lg whitespace-nowrap text-teal-100 hover:bg-teal-800 transition">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>Refleksi Diri</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- TAB 1: PENDAHULUAN -->
+        <section id="tab-pendahuluan" class="tab-content block space-y-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-100">
+                    <div class="space-y-3">
+                        <span class="inline-block bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full">
+                            Pendidikan Agama Islam & Budi Pekerti
+                        </span>
+                        <h2 class="text-2xl md:text-3xl font-bold text-slate-800">Perawatan Jenazah Dalam Islam</h2>
+                        <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                            Setiap manusia yang bernyawa pasti akan mengalami kematian. Sebagai sesama muslim, mengurus jenazah merupakan bentuk penghormatan terakhir dan hukumnya adalah <strong class="text-teal-700">Fardhu Kifayah</strong>.
+                        </p>
+                    </div>
+                    <div class="bg-teal-50 border border-teal-200 p-4 rounded-2xl text-center min-w-[220px]">
+                        <i class="fa-solid fa-scale-balanced text-3xl text-teal-600 mb-2"></i>
+                        <h4 class="font-bold text-teal-900 text-sm">Hukum Pelaksanaan</h4>
+                        <p class="text-teal-700 text-xs mt-1"><strong>Fardhu Kifayah</strong><br>(Kewajiban Kolektif Ummat Islam)</p>
+                    </div>
+                </div>
+
+                <!-- Dalil Kematian -->
+                <div class="mt-6 bg-slate-50 border-l-4 border-amber-500 p-4 rounded-r-xl">
+                    <div class="flex items-start space-x-3">
+                        <i class="fa-solid fa-quote-left text-amber-500 text-xl mt-1"></i>
+                        <div>
+                            <p class="font-arabic text-xl md:text-2xl text-right leading-loose text-slate-800 mb-2">
+                                كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ۗ
+                            </p>
+                            <p class="text-xs md:text-sm text-slate-600 italic">
+                                "Tiap-tiap yang berjiwa akan merasakan mati..." <strong>(Q.S. Ali 'Imran [3]: 185)</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capaian & Tujuan Pembelajaran -->
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                        <h3 class="font-bold text-teal-800 flex items-center gap-2 mb-3">
+                            <i class="fa-solid fa-bullseye text-teal-600"></i> Tujuan Pembelajaran
+                        </h3>
+                        <ul class="space-y-2 text-sm text-slate-700">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-teal-600 mt-1 text-xs"></i>
+                                <span>Menjelaskan kewajiban umat Islam terhadap jenazah secara sistematis.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-teal-600 mt-1 text-xs"></i>
+                                <span>Menganalisis syarat, rukun, dan tata cara memandikan, mengkafani, menyolatkan, dan menguburkan jenazah.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-teal-600 mt-1 text-xs"></i>
+                                <span>Mempraktikkan tata cara shalat jenazah dengan benar sesuai syariat Islam.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-teal-600 mt-1 text-xs"></i>
+                                <span>Menunjukkan sikap peduli, empati, dan gotong royong dalam kehidupan bermasyarakat.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-amber-50/60 p-5 rounded-xl border border-amber-200">
+                        <h3 class="font-bold text-amber-900 flex items-center gap-2 mb-3">
+                            <i class="fa-solid fa-list-check text-amber-700"></i> 4 Kewajiban Utama terhadap Jenazah
+                        </h3>
+                        <div class="grid grid-cols-2 gap-3 text-xs md:text-sm">
+                            <div class="bg-white p-3 rounded-lg border border-amber-100 flex items-center space-x-2">
+                                <span class="w-6 h-6 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-xs">1</span>
+                                <span class="font-medium text-slate-800">Memandikan</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-amber-100 flex items-center space-x-2">
+                                <span class="w-6 h-6 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-xs">2</span>
+                                <span class="font-medium text-slate-800">Mengkafani</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-amber-100 flex items-center space-x-2">
+                                <span class="w-6 h-6 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-xs">3</span>
+                                <span class="font-medium text-slate-800">Menyolatkan</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-amber-100 flex items-center space-x-2">
+                                <span class="w-6 h-6 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-xs">4</span>
+                                <span class="font-medium text-slate-800">Menguburkan</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-amber-800 mt-3 italic">
+                            *Jika sudah ada sebagian warga yang melaksanakannya, maka gugurlah kewajiban warga lainnya. Namun jika tidak ada yang mengurus, seluruh warga berdosa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: PETA KONSEP MATERI -->
+        <section id="tab-peta-konsep" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <h2 class="text-2xl font-bold text-slate-800">Peta Konsep Perawatan Jenazah</h2>
+                    <p class="text-slate-600 text-sm mt-1">Alur hirarki dan keterkaitan materi pelaksanaan pengurusan jenazah</p>
+                </div>
+
+                <!-- Visual Mind Map Grid -->
+                <div class="relative">
+                    <!-- Root node -->
+                    <div class="flex justify-center mb-8">
+                        <div class="bg-teal-800 text-white px-6 py-3 rounded-2xl shadow-lg text-center font-bold text-lg">
+                            PERAWATAN JENAZAH <br><span class="text-xs font-normal text-teal-200">(Hukum: Fardhu Kifayah)</span>
+                        </div>
+                    </div>
+
+                    <!-- Connectors -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+                        
+                        <!-- Card 1 -->
+                        <div class="bg-slate-50 border-2 border-teal-500 rounded-xl p-4 text-center hover:shadow-md transition">
+                            <div class="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">1</div>
+                            <h3 class="font-bold text-teal-900 text-base mb-2">Memandikan</h3>
+                            <ul class="text-xs text-slate-600 space-y-1.5 text-left bg-white p-3 rounded-lg border border-slate-200">
+                                <li>• Syarat Suci & Muslim</li>
+                                <li>• Menutup Aurat Jenazah</li>
+                                <li>• Menggunakan Air Suci Mensucikan</li>
+                                <li>• Dimulai Anggota Wudhu</li>
+                            </ul>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="bg-slate-50 border-2 border-teal-500 rounded-xl p-4 text-center hover:shadow-md transition">
+                            <div class="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">2</div>
+                            <h3 class="font-bold text-teal-900 text-base mb-2">Mengkafani</h3>
+                            <ul class="text-xs text-slate-600 space-y-1.5 text-left bg-white p-3 rounded-lg border border-slate-200">
+                                <li>• Kain Putih & Bersih</li>
+                                <li>• Laki-laki: 3 Lapis</li>
+                                <li>• Perempuan: 5 Lapis</li>
+                                <li>• Diberi Wewangian (Kapur Barus)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="bg-slate-50 border-2 border-teal-500 rounded-xl p-4 text-center hover:shadow-md transition">
+                            <div class="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">3</div>
+                            <h3 class="font-bold text-teal-900 text-base mb-2">Menyolatkan</h3>
+                            <ul class="text-xs text-slate-600 space-y-1.5 text-left bg-white p-3 rounded-lg border border-slate-200">
+                                <li>• Berdiri Bagi yang Mampu</li>
+                                <li>• 4 Kali Takbir (Tanpa Ruku'/Sujud)</li>
+                                <li>• Takbir 1: Al-Fatihah</li>
+                                <li>• Takbir 2: Shalawat</li>
+                                <li>• Takbir 3 & 4: Doa Jenazah</li>
+                            </ul>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="bg-slate-50 border-2 border-teal-500 rounded-xl p-4 text-center hover:shadow-md transition">
+                            <div class="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">4</div>
+                            <h3 class="font-bold text-teal-900 text-base mb-2">Menguburkan</h3>
+                            <ul class="text-xs text-slate-600 space-y-1.5 text-left bg-white p-3 rounded-lg border border-slate-200">
+                                <li>• Liang Lahat / Cempuri</li>
+                                <li>• Dimiringkan ke Kanan</li>
+                                <li>• Menghadap Kiblat</li>
+                                <li>• Membuka Tali Pengikat</li>
+                                <li>• Doa & Penimbunan Tanah</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: PEMBAHASAN MATERI LENGKAP -->
+        <section id="tab-materi" class="tab-content hidden space-y-6">
+            
+            <!-- Step Selection Tabs -->
+            <div class="bg-white p-2 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap gap-2">
+                <button onclick="setProcessStep(1)" id="step-btn-1" class="process-btn flex-1 min-w-[140px] py-3 px-4 rounded-xl text-xs md:text-sm font-semibold transition flex items-center justify-center space-x-2 border border-slate-200">
+                    <span>1. Memandikan</span>
+                </button>
+                <button onclick="setProcessStep(2)" id="step-btn-2" class="process-btn flex-1 min-w-[140px] py-3 px-4 rounded-xl text-xs md:text-sm font-semibold transition flex items-center justify-center space-x-2 border border-slate-200">
+                    <span>2. Mengkafani</span>
+                </button>
+                <button onclick="setProcessStep(3)" id="step-btn-3" class="process-btn flex-1 min-w-[140px] py-3 px-4 rounded-xl text-xs md:text-sm font-semibold transition flex items-center justify-center space-x-2 border border-slate-200">
+                    <span>3. Menyolatkan</span>
+                </button>
+                <button onclick="setProcessStep(4)" id="step-btn-4" class="process-btn flex-1 min-w-[140px] py-3 px-4 rounded-xl text-xs md:text-sm font-semibold transition flex items-center justify-center space-x-2 border border-slate-200">
+                    <span>4. Menguburkan</span>
+                </button>
+            </div>
+
+            <!-- STEP 1: MEMANDIKAN -->
+            <div id="step-content-1" class="step-card bg-white p-6 md:p-8 rounded-2xl border border-slate-200 space-y-6">
+                <div class="flex items-center space-x-3 text-teal-800 border-b border-slate-200 pb-4">
+                    <div class="w-10 h-10 bg-teal-100 text-teal-800 rounded-lg flex items-center justify-center font-bold">1</div>
+                    <div>
+                        <h3 class="text-xl font-bold">Tata Cara Memandikan Jenazah</h3>
+                        <p class="text-xs text-slate-500">Syarat, Niat, dan Langkah-langkah Pelaksanaan</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-slate-800 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-teal-600"></i> Syarat Jenazah yang Dimandikan:
+                        </h4>
+                        <ul class="list-disc list-inside text-xs md:text-sm text-slate-700 space-y-1 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <li>Beragama Islam.</li>
+                            <li>Ada tubuhnya walau hanya sebagian.</li>
+                            <li>Bukan mati syahid dalam peperangan membela agama Islam.</li>
+                        </ul>
+
+                        <h4 class="font-bold text-slate-800 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-user-shield text-teal-600"></i> Syarat Orang yang Memandikan:
+                        </h4>
+                        <ul class="list-disc list-inside text-xs md:text-sm text-slate-700 space-y-1 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <li>Muslim, berakal, dan baligh.</li>
+                            <li>Amanah dan dapat menjaga rahasia/aib jenazah.</li>
+                            <li>Sejenis kelamin (Jenazah laki-laki dimandikan laki-laki, jenazah perempuan oleh perempuan), kecuali suami/istri atau mahram.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Doa Niat -->
+                    <div class="space-y-4">
+                        <div class="bg-teal-50 border border-teal-200 p-4 rounded-xl space-y-3">
+                            <h4 class="font-bold text-teal-900 text-xs uppercase tracking-wider">Niat Memandikan Jenazah Laki-laki</h4>
+                            <p class="font-arabic text-xl text-right leading-loose text-slate-800">
+                                نَوَيْتُ الْغُسْلَ لِهٰذَا الْمَيِّتِ لِلّٰهِ تَعَالَى
+                            </p>
+                            <p class="text-xs text-slate-600 italic">
+                                "Nawaitul ghusla li-haadzal mayyiti lillaahi ta'aalaa."
+                            </p>
+                        </div>
+
+                        <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl space-y-3">
+                            <h4 class="font-bold text-amber-900 text-xs uppercase tracking-wider">Niat Memandikan Jenazah Perempuan</h4>
+                            <p class="font-arabic text-xl text-right leading-loose text-slate-800">
+                                نَوَيْتُ الْغُسْلَ لِهٰذِهِ الْمَيِّتَةِ لِلّٰهِ تَعَالَى
+                            </p>
+                            <p class="text-xs text-slate-600 italic">
+                                "Nawaitul ghusla li-haadzihil mayyitati lillaahi ta'aalaa."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Langkah Urutan -->
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                    <h4 class="font-bold text-slate-800 text-sm mb-3">Langkah-Langkah Memandikan:</h4>
+                    <ol class="list-decimal list-inside space-y-2 text-xs md:text-sm text-slate-700">
+                        <li>Letakkan jenazah di tempat tertutup, agak tinggi, dan tutupi auratnya dengan kain tebal.</li>
+                        <li>Tekan perut jenazah secara perlahan-lahan untuk mengeluarkan kotoran yang tersisa.</li>
+                        <li>Bersihkan mulut, gigi, lubang hidung, telinga, dan kemaluan dari kotoran.</li>
+                        <li>Wudhukan jenazah sebagaimana wudhu untuk shalat.</li>
+                        <li>Siramkan air ke seluruh tubuh mulai dari kepala hingga kaki, prioritaskan anggota tubuh sebelah kanan terlebih dahulu.</li>
+                        <li>Gunakan air sabun, lalu bilas dengan air bersih, dan siraman terakhir dicampur sedikit kapur barus/daun bidara.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- STEP 2: MENGKAFANI -->
+            <div id="step-content-2" class="step-card bg-white p-6 md:p-8 rounded-2xl border border-slate-200 space-y-6 hidden">
+                <div class="flex items-center space-x-3 text-teal-800 border-b border-slate-200 pb-4">
+                    <div class="w-10 h-10 bg-teal-100 text-teal-800 rounded-lg flex items-center justify-center font-bold">2</div>
+                    <div>
+                        <h3 class="text-xl font-bold">Tata Cara Mengkafani Jenazah</h3>
+                        <p class="text-xs text-slate-500">Ketentuan Jumlah Lapis dan Cara Membungkus</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-teal-50 border border-teal-200 p-5 rounded-xl">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <i class="fa-solid fa-mars text-teal-700 text-lg"></i>
+                            <h4 class="font-bold text-teal-900">Kain Kafan Jenazah Laki-laki</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-3">Disunnahkan <strong>3 Lapis Kain Kafan</strong> (semuanya kain pembungkus seluruh tubuh).</p>
+                        <ul class="list-disc list-inside text-xs text-slate-700 space-y-1">
+                            <li>Lapis 1: Lembar paling luar/bawah.</li>
+                            <li>Lapis 2: Lembar tengah.</li>
+                            <li>Lapis 3: Lembar paling dalam.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-amber-50 border border-amber-200 p-5 rounded-xl">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <i class="fa-solid fa-venus text-amber-700 text-lg"></i>
+                            <h4 class="font-bold text-amber-900">Kain Kafan Jenazah Perempuan</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-3">Disunnahkan <strong>5 Lapis Kain Kafan</strong> terdiri dari:</p>
+                        <ul class="list-disc list-inside text-xs text-slate-700 space-y-1">
+                            <li>1 Lembar kain pembungkus luar.</li>
+                            <li>1 Lembar kain sarung (pinggang ke bawah).</li>
+                            <li>1 Lembar baju kurung / gamis.</li>
+                            <li>1 Lembar kerudung / tutup kepala.</li>
+                            <li>1 Lembar cawat / penutup aurat.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                    <h4 class="font-bold text-slate-800 text-sm">Langkah Membungkus Jenazah:</h4>
+                    <ol class="list-decimal list-inside space-y-2 text-xs md:text-sm text-slate-700">
+                        <li>Bentangkan 3–5 tali pengikat kain kafan di atas tempat yang rata.</li>
+                        <li>Bentangkan kain kafan helai demi helai di atas tali pengikat, dan taburkan wewangian (kapur barus/murni) pada tiap lapisnya.</li>
+                        <li>Angkat jenazah yang telah dimandikan dengan tetap menutup auratnya, letakkan di atas kain kafan.</li>
+                        <li>Tutup lubang-lubang tubuh (hidung, telinga, kemaluan, serta persendian) dengan kapas.</li>
+                        <li>Lipat kain kafan mulai dari sisi kiri ke kanan, lalu sisi kanan ke kiri secara rapi.</li>
+                        <li>Ikat dengan tali kafan yang disiapkan (di bagian kepala, dada, perut, lutut, dan ujung kaki). Posisikan simpul di sebelah kiri badan jenazah agar mudah dibuka saat di kubur.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- STEP 3: MENYOLATKAN -->
+            <div id="step-content-3" class="step-card bg-white p-6 md:p-8 rounded-2xl border border-slate-200 space-y-6 hidden">
+                <div class="flex items-center space-x-3 text-teal-800 border-b border-slate-200 pb-4">
+                    <div class="w-10 h-10 bg-teal-100 text-teal-800 rounded-lg flex items-center justify-center font-bold">3</div>
+                    <div>
+                        <h3 class="text-xl font-bold">Tata Cara Menyolatkan Jenazah</h3>
+                        <p class="text-xs text-slate-500">Rukun, Posisi Imam, dan Bacaan 4 Takbir</p>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl text-xs text-amber-900 flex items-center space-x-3">
+                    <i class="fa-solid fa-circle-exclamation text-lg text-amber-600"></i>
+                    <span><strong>PENTING:</strong> Shalat jenazah dilakukan tanpa ruku', tanpa sujud, dan tanpa iqamah. Dilakukan dalam posisi berdiri dengan 4 kali Takbir.</span>
+                </div>
+
+                <!-- Posisi Imam -->
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="border border-slate-200 p-4 rounded-xl bg-slate-50">
+                        <h4 class="font-bold text-teal-900 text-xs uppercase mb-1">Posisi Berdiri Imam (Jenazah Laki-laki)</h4>
+                        <p class="text-xs text-slate-700">Imam berdiri sejajar dengan <strong>KEPALA</strong> jenazah.</p>
+                    </div>
+                    <div class="border border-slate-200 p-4 rounded-xl bg-slate-50">
+                        <h4 class="font-bold text-amber-900 text-xs uppercase mb-1">Posisi Berdiri Imam (Jenazah Perempuan)</h4>
+                        <p class="text-xs text-slate-700">Imam berdiri sejajar dengan <strong>LAMBUNG / PINGGANG</strong> jenazah.</p>
+                    </div>
+                </div>
+
+                <!-- Bacaan 4 Takbir -->
+                <div class="space-y-4">
+                    <!-- Takbir 1 -->
+                    <div class="border border-slate-200 p-4 rounded-xl bg-white space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-xs bg-teal-100 text-teal-800 px-2.5 py-1 rounded-md">Takbir ke-1</span>
+                            <span class="text-xs font-semibold text-slate-500">Membaca Surah Al-Fatihah</span>
+                        </div>
+                        <p class="text-xs text-slate-600 mt-2">Setelah Takbiratul Ihram, membaca Surah Al-Fatihah secara sirr (pelan).</p>
+                    </div>
+
+                    <!-- Takbir 2 -->
+                    <div class="border border-slate-200 p-4 rounded-xl bg-white space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-xs bg-teal-100 text-teal-800 px-2.5 py-1 rounded-md">Takbir ke-2</span>
+                            <span class="text-xs font-semibold text-slate-500">Membaca Shalawat atas Nabi</span>
+                        </div>
+                        <p class="font-arabic text-lg text-right leading-loose text-slate-800">
+                            اَللّٰهُمَّ صَلِّ عَلَىٰ سَيِّدِنَا مُحَمَّدٍ وَعَلَىٰ آلِ سَيِّدِنَا مُحَمَّدٍ
+                        </p>
+                        <p class="text-xs text-slate-600 italic">"Allahumma sholli 'alaa sayyidinaa Muhammad wa 'alaa aali sayyidinaa Muhammad."</p>
+                    </div>
+
+                    <!-- Takbir 3 -->
+                    <div class="border border-slate-200 p-4 rounded-xl bg-white space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-xs bg-teal-100 text-teal-800 px-2.5 py-1 rounded-md">Takbir ke-3</span>
+                            <span class="text-xs font-semibold text-slate-500">Membaca Doa untuk Jenazah</span>
+                        </div>
+                        <p class="font-arabic text-lg text-right leading-loose text-slate-800">
+                            اَللّٰهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَعَافِهِ وَاعْفُ عَنْهُ
+                        </p>
+                        <p class="text-xs text-slate-600 italic">"Allahummaghfirlahu warhamhu wa 'aafihi wa'fu 'anhu." *(Ganti 'hu' menjadi 'ha' untuk jenazah perempuan)*</p>
+                    </div>
+
+                    <!-- Takbir 4 -->
+                    <div class="border border-slate-200 p-4 rounded-xl bg-white space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-xs bg-teal-100 text-teal-800 px-2.5 py-1 rounded-md">Takbir ke-4</span>
+                            <span class="text-xs font-semibold text-slate-500">Membaca Doa Penutup & Salam</span>
+                        </div>
+                        <p class="font-arabic text-lg text-right leading-loose text-slate-800">
+                            اَللّٰهُمَّ لَا تَحْرِمْنَا أَجْرَهُ وَلَا تَفْتِنَّا بَعْدَهُ وَاغْفِرْ لَنَا وَلَهُ
+                        </p>
+                        <p class="text-xs text-slate-600 italic">"Allahumma laa tahrimnaa ajrahu wa laa taftinnaa ba'dahu waghfirlanaa walahu." Lalu mengcapkan salam ke kanan dan kiri.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 4: MENGUBURKAN -->
+            <div id="step-content-4" class="step-card bg-white p-6 md:p-8 rounded-2xl border border-slate-200 space-y-6 hidden">
+                <div class="flex items-center space-x-3 text-teal-800 border-b border-slate-200 pb-4">
+                    <div class="w-10 h-10 bg-teal-100 text-teal-800 rounded-lg flex items-center justify-center font-bold">4</div>
+                    <div>
+                        <h3 class="text-xl font-bold">Tata Cara Menguburkan Jenazah</h3>
+                        <p class="text-xs text-slate-500">Ketentuan Liang Lahat, Memasukkan Jenazah, dan Doa</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl space-y-3">
+                        <h4 class="font-bold text-slate-800 text-sm">Bentuk Liang Lahat:</h4>
+                        <ul class="text-xs text-slate-700 space-y-2">
+                            <li><strong>Liang Lahat (Syatq):</strong> Dibuat galian di dinding bawah liang kubur sebelah kiblat jika tanahnya keras.</li>
+                            <li><strong>Liang Cempuri (Syaq):</strong> Dibuat celah di tengah dasar kubur jika tanahnya gembur/berpasir.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-teal-50 border border-teal-200 p-4 rounded-xl space-y-2">
+                        <h4 class="font-bold text-teal-900 text-xs uppercase tracking-wider">Doa Memasukkan Jenazah ke Kubur</h4>
+                        <p class="font-arabic text-lg text-right leading-loose text-slate-800">
+                            بِسْمِ اللّٰهِ وَعَلَىٰ مِلَّةِ رَسُوْلِ اللّٰهِ
+                        </p>
+                        <p class="text-xs text-slate-600 italic">"Bismillaahi wa 'alaa millati rasuulillaah."</p>
+                        <p class="text-xs text-slate-500">Artinya: "Dengan nama Allah dan atas agama Rasulullah."</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                    <h4 class="font-bold text-slate-800 text-sm">Langkah-Langkah Menguburkan:</h4>
+                    <ol class="list-decimal list-inside space-y-2 text-xs md:text-sm text-slate-700">
+                        <li>Memasukkan jenazah ke liang kubur secara perlahan dimulai dari arah kaki kuburan.</li>
+                        <li>Baringkan jenazah dalam posisi **miring ke sebelah kanan** dan menghadap ke arah Kiblat.</li>
+                        <li>Tempelkan pipi kanan jenazah ke tanah dengan membuka sebagian kafan di wajah.</li>
+                        <li>Buka tali-tali pengikat kain kafan.</li>
+                        <li>Tutup liang lahat dengan papan kayu atau batu bata sebelum ditimbun tanah.</li>
+                        <li>Menimbun tanah secara perlahan, meninggikan kuburan sekitar satu jengkal, dan mendoakan jenazah agar diampuni serta diberikan ketetapan iman.</li>
+                    </ol>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- TAB 4: LINK & VIDEO PERAGAAN -->
+        <section id="tab-video" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <h2 class="text-2xl font-bold text-slate-800">Video Edukasi Perawatan Jenazah</h2>
+                    <p class="text-slate-600 text-sm mt-1">Saksikan video tutorial peragaan tata cara memandikan, mengkafani (laki-laki & perempuan), dan shalat jenazah sesuai sunnah</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Video 1: Memandikan -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm flex flex-col">
+                        <div class="relative pt-[56.25%] bg-slate-900">
+                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/_TVz-buBOEI" title="Tata Cara Memandikan Jenazah" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-1 rounded">1. Memandikan</span>
+                                <h3 class="font-bold text-slate-800 text-sm mt-2">Tata Cara Memandikan Jenazah</h3>
+                                <p class="text-xs text-slate-500 mt-1">Panduan praktis syarat air, urutan menyiram, dan menjaga aurat jenazah.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2: Mengkafani Laki-laki -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm flex flex-col">
+                        <div class="relative pt-[56.25%] bg-slate-900">
+                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/45UdPfiYdJg" title="Tata Cara Mengkafani Jenazah Laki-laki" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded">2. Mengkafani Laki-Laki</span>
+                                <h3 class="font-bold text-slate-800 text-sm mt-2">Tata Cara Mengkafani Jenazah Laki-Laki</h3>
+                                <p class="text-xs text-slate-500 mt-1">Teknik menyiapkan 3 lapis kain kafan, pemotongan, dan pengikatan simpul.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 3: Mengkafani Perempuan -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm flex flex-col">
+                        <div class="relative pt-[56.25%] bg-slate-900">
+                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/1oLXEsXzwbA" title="Tata Cara Mengkafani Jenazah Perempuan" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded">3. Mengkafani Perempuan</span>
+                                <h3 class="font-bold text-slate-800 text-sm mt-2">Tata Cara Mengkafani Jenazah Perempuan</h3>
+                                <p class="text-xs text-slate-500 mt-1">Panduan menyusun 5 lapis kain kafan (kain basahan, baju, kerudung, dan penutup).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 4: Menyolatkan -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm flex flex-col">
+                        <div class="relative pt-[56.25%] bg-slate-900">
+                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/QiCMDLM941g?start=395" title="Tata Cara Shalat Jenazah" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-1 rounded">4. Menyolatkan</span>
+                                <h3 class="font-bold text-slate-800 text-sm mt-2">Tata Cara Shalat Jenazah</h3>
+                                <p class="text-xs text-slate-500 mt-1">Peragaan pelaksanaan shalat jenazah 4 kali takbir dan posisi berdiri imam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Direct Video Links Box -->
+                <div class="mt-8 bg-slate-50 border border-slate-200 p-5 rounded-xl">
+                    <h3 class="font-bold text-slate-800 text-sm mb-3 flex items-center gap-2">
+                        <i class="fa-brands fa-youtube text-red-600 text-lg"></i> Link Referensi Video Edukasi:
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-3 text-xs">
+                        <a href="https://www.youtube.com/watch?v=_TVz-buBOEI" target="_blank" rel="noopener noreferrer" class="p-3 bg-white border border-slate-200 rounded-lg flex items-center justify-between text-teal-700 hover:bg-teal-50 font-medium">
+                            <span>1. Memandikan Jenazah</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-slate-400"></i>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=45UdPfiYdJg" target="_blank" rel="noopener noreferrer" class="p-3 bg-white border border-slate-200 rounded-lg flex items-center justify-between text-teal-700 hover:bg-teal-50 font-medium">
+                            <span>2. Mengkafani Jenazah Laki-laki</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-slate-400"></i>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=1oLXEsXzwbA" target="_blank" rel="noopener noreferrer" class="p-3 bg-white border border-slate-200 rounded-lg flex items-center justify-between text-teal-700 hover:bg-teal-50 font-medium">
+                            <span>3. Mengkafani Jenazah Perempuan</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-slate-400"></i>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=QiCMDLM941g&t=395s" target="_blank" rel="noopener noreferrer" class="p-3 bg-white border border-slate-200 rounded-lg flex items-center justify-between text-teal-700 hover:bg-teal-50 font-medium">
+                            <span>4. Menyolatkan Jenazah</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-slate-400"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: KUIS & LATIHAN SOAL -->
+        <section id="tab-kuis" class="tab-content hidden space-y-6">
+            
+            <!-- Quiz Switch Header -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 pb-6 border-b border-slate-200">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">Uji Pemahaman & Kuis Interaktif</h2>
+                        <p class="text-xs md:text-sm text-slate-600">Jawablah pertanyaan di bawah ini untuk mengukur tingkat pemahaman materi Anda.</p>
+                    </div>
+                    <div id="quiz-score-badge" class="hidden bg-teal-100 text-teal-900 border border-teal-300 px-5 py-2.5 rounded-xl font-bold text-center">
+                        Nilai Anda: <span id="quiz-score-val" class="text-xl text-teal-700">0</span> / 100
+                    </div>
+                </div>
+
+                <!-- Questions Container -->
+                <form id="quiz-form" class="mt-6 space-y-6">
+                    
+                    <!-- Question 1 -->
+                    <div class="q-box bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3" data-q="1" data-answer="B">
+                        <p class="font-semibold text-sm text-slate-800">1. Apakah hukum mengurus jenazah bagi umat Islam yang hidup?</p>
+                        <div class="space-y-2 text-xs md:text-sm">
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q1" value="A" class="text-teal-600 focus:ring-teal-500">
+                                <span>A. Fardhu 'Ain</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q1" value="B" class="text-teal-600 focus:ring-teal-500">
+                                <span>B. Fardhu Kifayah</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q1" value="C" class="text-teal-600 focus:ring-teal-500">
+                                <span>C. Sunnah Muakkad</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q1" value="D" class="text-teal-600 focus:ring-teal-500">
+                                <span>D. Mubah</span>
+                            </label>
+                        </div>
+                        <div class="q-feedback hidden p-3 rounded-lg text-xs"></div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="q-box bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3" data-q="2" data-answer="C">
+                        <p class="font-semibold text-sm text-slate-800">2. Berapa lembar kain kafan yang disunnahkan untuk jenazah laki-laki?</p>
+                        <div class="space-y-2 text-xs md:text-sm">
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q2" value="A" class="text-teal-600 focus:ring-teal-500">
+                                <span>A. 1 Lapis</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q2" value="B" class="text-teal-600 focus:ring-teal-500">
+                                <span>B. 2 Lapis</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q2" value="C" class="text-teal-600 focus:ring-teal-500">
+                                <span>C. 3 Lapis</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q2" value="D" class="text-teal-600 focus:ring-teal-500">
+                                <span>D. 5 Lapis</span>
+                            </label>
+                        </div>
+                        <div class="q-feedback hidden p-3 rounded-lg text-xs"></div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="q-box bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3" data-q="3" data-answer="D">
+                        <p class="font-semibold text-sm text-slate-800">3. Berapa lembar kain kafan yang disunnahkan untuk jenazah perempuan?</p>
+                        <div class="space-y-2 text-xs md:text-sm">
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q3" value="A" class="text-teal-600 focus:ring-teal-500">
+                                <span>A. 2 Lapis</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q3" value="B" class="text-teal-600 focus:ring-teal-500">
+                                <span>B. 3 Lapis</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q3" value="C" class="text-teal-600 focus:ring-teal-500">
+                                <span>C. 4 Lapis</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q3" value="D" class="text-teal-600 focus:ring-teal-500">
+                                <span>D. 5 Lapis</span>
+                            </label>
+                        </div>
+                        <div class="q-feedback hidden p-3 rounded-lg text-xs"></div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="q-box bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3" data-q="4" data-answer="A">
+                        <p class="font-semibold text-sm text-slate-800">4. Posisi berdiri imam saat menyolatkan jenazah Laki-laki adalah berada sejajar dengan...</p>
+                        <div class="space-y-2 text-xs md:text-sm">
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q4" value="A" class="text-teal-600 focus:ring-teal-500">
+                                <span>A. Kepala jenazah</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q4" value="B" class="text-teal-600 focus:ring-teal-500">
+                                <span>B. Lambung/pinggang jenazah</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q4" value="C" class="text-teal-600 focus:ring-teal-500">
+                                <span>C. Lutut jenazah</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q4" value="D" class="text-teal-600 focus:ring-teal-500">
+                                <span>D. Ujung kaki jenazah</span>
+                            </label>
+                        </div>
+                        <div class="q-feedback hidden p-3 rounded-lg text-xs"></div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="q-box bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3" data-q="5" data-answer="B">
+                        <p class="font-semibold text-sm text-slate-800">5. Apakah yang dibaca setelah Takbir Pertama pada shalat jenazah?</p>
+                        <div class="space-y-2 text-xs md:text-sm">
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q5" value="A" class="text-teal-600 focus:ring-teal-500">
+                                <span>A. Membaca Shalawat Nabi</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q5" value="B" class="text-teal-600 focus:ring-teal-500">
+                                <span>B. Membaca Surah Al-Fatihah</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q5" value="C" class="text-teal-600 focus:ring-teal-500">
+                                <span>C. Membaca doa ampunan jenazah</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-2.5 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-100">
+                                <input type="radio" name="q5" value="D" class="text-teal-600 focus:ring-teal-500">
+                                <span>D. Membaca doa Iftitah</span>
+                            </label>
+                        </div>
+                        <div class="q-feedback hidden p-3 rounded-lg text-xs"></div>
+                    </div>
+
+                    <div class="pt-4 flex justify-end">
+                        <button type="button" onclick="evaluateQuiz()" class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-3 px-8 rounded-xl shadow transition">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Periksa Jawaban
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Latihan Soal Esai / Pemahaman -->
+                <div class="mt-12 border-t border-slate-200 pt-8">
+                    <h3 class="font-bold text-lg text-slate-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-question text-teal-700"></i> Latihan Soal Esai Pemahaman
+                    </h3>
+
+                    <div class="space-y-4">
+                        <details class="bg-slate-50 rounded-xl border border-slate-200 p-4">
+                            <summary class="font-semibold text-sm cursor-pointer text-teal-900">1. Mengapa perawatan jenazah dihukumi Fardhu Kifayah?</summary>
+                            <p class="text-xs text-slate-600 mt-3 pl-4 border-l-2 border-teal-600">
+                                **Jawaban:** Karena kewajiban mengurus jenazah merupakan bentuk tanggung jawab sosial dan kebersamaan seluruh masyarakat muslim. Jika sudah ada sebagian muslim yang melaksanakannya, maka gugurlah dosa dari seluruh warga lainnya.
+                            </p>
+                        </details>
+
+                        <details class="bg-slate-50 rounded-xl border border-slate-200 p-4">
+                            <summary class="font-semibold text-sm cursor-pointer text-teal-900">2. Sebutkan jenazah yang TIDAK perlu dimandikan dan disholatkan!</summary>
+                            <p class="text-xs text-slate-600 mt-3 pl-4 border-l-2 border-teal-600">
+                                **Jawaban:** Orang yang mati syahid di medan perang dalam membela dan memperjuangkan agama Islam (Syahid Ma'rakah). Jenazah mereka cukup dikafani dengan pakaian yang melekat saat gugur dan langsung dimakamkan.
+                            </p>
+                        </details>
+
+                        <details class="bg-slate-50 rounded-xl border border-slate-200 p-4">
+                            <summary class="font-semibold text-sm cursor-pointer text-teal-900">3. Jelaskan tata cara membaringkan jenazah di dalam liang kubur!</summary>
+                            <p class="text-xs text-slate-600 mt-3 pl-4 border-l-2 border-teal-600">
+                                **Jawaban:** Jenazah dibaringkan miring ke arah kanan, mukanya dihadapkan ke arah Kiblat, pipi kanan ditempelkan ke tanah (dengan membuka simpul/ujung kafan di wajah), dan tali-tali pengikat kain kafan dilepaskan.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB 6: LEMBAR REFLEKSI DIRI -->
+        <section id="tab-refleksi" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <div class="border-b border-slate-200 pb-4 mb-6">
+                    <h2 class="text-2xl font-bold text-slate-800">Lembar Refleksi Diri Siswa</h2>
+                    <p class="text-xs md:text-sm text-slate-600">Renungan dan penilaian sikap terkait pembelajaran materi Perawatan Jenazah</p>
+                </div>
+
+                <!-- Self Assessment Form -->
+                <div class="space-y-6">
+                    
+                    <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl">
+                        <h4 class="font-bold text-amber-900 text-xs md:text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-lightbulb"></i> Perenungan Kematian (Memento Mori)
+                        </h4>
+                        <p class="text-xs text-amber-800 mt-1">
+                            Kematian adalah kepastian yang akan dialami oleh semua manusia. Mempelajari perawatan jenazah tidak hanya mengajarkan tata cara fikih, tetapi juga mengingatkan kita untuk selalu berbuat baik dan bersiap diri.
+                        </p>
+                    </div>
+
+                    <form id="refleksi-form" onsubmit="event.preventDefault(); printRefleksi();" class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Siswa:</label>
+                                <input type="text" required class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-teal-500 outline-none" placeholder="Masukkan nama lengkap">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Kelas / No. Absen:</label>
+                                <input type="text" required class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-teal-500 outline-none" placeholder="Contoh: 8A / 12">
+                            </div>
+                        </div>
+
+                        <!-- Checklist Sikap -->
+                        <div class="space-y-3 pt-4">
+                            <h4 class="font-bold text-sm text-slate-800">Checklist Sikap & Kesiapan:</h4>
+                            
+                            <label class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer">
+                                <input type="checkbox" class="mt-1 text-teal-600 rounded focus:ring-teal-500">
+                                <span class="text-xs md:text-sm text-slate-700">Saya menyadari bahwa kematian pasti datang dan saya ingin meningkatkan ibadah serta perbuatan baik sehari-hari.</span>
+                            </label>
+
+                            <label class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer">
+                                <input type="checkbox" class="mt-1 text-teal-600 rounded focus:ring-teal-500">
+                                <span class="text-xs md:text-sm text-slate-700">Saya memahami pentingnya hukum Fardhu Kifayah dan siap berkontribusi membantu jika ada tetangga/keluarga yang meninggal.</span>
+                            </label>
+
+                            <label class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl border border-slate-200 cursor-pointer">
+                                <input type="checkbox" class="mt-1 text-teal-600 rounded focus:ring-teal-500">
+                                <span class="text-xs md:text-sm text-slate-700">Saya sudah mampu dan percaya diri untuk melakukan gerakan dan bacaan Shalat Jenazah.</span>
+                            </label>
+                        </div>
+
+                        <!-- Catatan Refleksi -->
+                        <div class="pt-2">
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Pelajaran paling berharga yang saya dapatkan dari materi ini:</label>
+                            <textarea rows="3" class="w-full border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-teal-500 outline-none" placeholder="Tuliskan kesan atau komitmen pribadi Anda..."></textarea>
+                        </div>
+
+                        <div class="pt-4 flex justify-end">
+                            <button type="submit" class="bg-teal-700 hover:bg-teal-800 text-white font-bold py-2.5 px-6 rounded-xl shadow text-sm transition">
+                                <i class="fa-solid fa-print mr-2"></i> Cetak Lembar Refleksi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs text-center py-6 border-t border-slate-800 mt-auto">
+        <p>© 2026 Media Pembelajaran Interaktif (MPI) PAI Kelas 8 SMP • Perawatan Jenazah</p>
+        <p class="text-slate-500 mt-1">Dirancang untuk Pembelajaran Interaktif PAI & Budi Pekerti</p>
+    </footer>
+
+    <!-- JavaScript Navigation & Quiz Logic -->
+    <script>
+        // Switch Navigation Tabs
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(el => {
+                el.classList.remove('bg-teal-800', 'text-white', 'font-semibold');
+                el.classList.add('text-teal-100');
+            });
+
+            const activeTab = document.getElementById('tab-' + tabId);
+            const activeNav = document.getElementById('nav-' + tabId);
+
+            if (activeTab) activeTab.classList.remove('hidden');
+            if (activeNav) activeNav.classList.add('bg-teal-800', 'text-white', 'font-semibold');
+        }
+
+        // Switch Process Steps (Materi Tab)
+        function setProcessStep(stepNum) {
+            document.querySelectorAll('.step-card').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.process-btn').forEach(el => {
+                el.classList.remove('bg-teal-600', 'text-white', 'shadow');
+                el.classList.add('bg-white', 'text-slate-700');
+            });
+
+            const currentStep = document.getElementById('step-content-' + stepNum);
+            const currentBtn = document.getElementById('step-btn-' + stepNum);
+
+            if (currentStep) currentStep.classList.remove('hidden');
+            if (currentBtn) {
+                currentBtn.classList.remove('bg-white', 'text-slate-700');
+                currentBtn.classList.add('bg-teal-600', 'text-white', 'shadow');
+            }
+        }
+
+        // Evaluate Quiz Logic
+        function evaluateQuiz() {
+            const questions = document.querySelectorAll('.q-box');
+            let score = 0;
+            const totalQuestions = questions.length;
+
+            questions.forEach(qBox => {
+                const qNum = qBox.getAttribute('data-q');
+                const correctAnswer = qBox.getAttribute('data-answer');
+                const selected = document.querySelector(`input[name="q${qNum}"]:checked`);
+                const feedback = qBox.querySelector('.q-feedback');
+
+                feedback.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+
+                if (selected && selected.value === correctAnswer) {
+                    score += 20; // 5 questions * 20 = 100 max
+                    feedback.classList.add('bg-green-100', 'text-green-800');
+                    feedback.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> <strong>Benar!</strong> Jawaban Anda tepat.`;
+                } else {
+                    feedback.classList.add('bg-red-100', 'text-red-800');
+                    feedback.innerHTML = `<i class="fa-solid fa-circle-xmark mr-1"></i> <strong>Kurang tepat.</strong> Jawaban yang benar adalah <strong>${correctAnswer}</strong>.`;
+                }
+            });
+
+            const scoreBadge = document.getElementById('quiz-score-badge');
+            const scoreVal = document.getElementById('quiz-score-val');
+            scoreBadge.classList.remove('hidden');
+            scoreVal.textContent = score;
+
+            // Scroll to top of quiz tab
+            window.scrollTo({ top: 100, behavior: 'smooth' });
+        }
+
+        // Print Reflection Sheet
+        function printRefleksi() {
+            window.print();
+        }
+
+        // Initialize default view
+        document.addEventListener('DOMContentLoaded', () => {
+            switchTab('pendahuluan');
+            setProcessStep(1);
+        });
+    </script>
+</body>
+</html>
